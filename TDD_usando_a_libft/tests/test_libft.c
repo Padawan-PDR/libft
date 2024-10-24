@@ -1,5 +1,6 @@
 #include "minunit.h"
 #include "../../libft.h"
+#include <bsd/string.h>
 
 MU_TEST(test_ft_isalpha_receiving_A_returns_true)
 {
@@ -157,17 +158,17 @@ MU_TEST(test_ft_strncmp_compare_two_strings)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST(test_ft_strncmp_compare_two_strings)
+MU_TEST(test_ft_strlcpy_copy_src_to_dest_and_return_src_len)
 {
 	//ARRANGE
-	char	*input1 = "Feijão com macarrão";
-	char	*input2 = "Feijão e Arroz";
-	int		from = 17;
+	char	src[] = "Feijão com macarrão";
+	char	dest[20];
+	int from = sizeof(dest);
 	int		actual_result;
-	int		expected_result = strncmp(input1, input2, from);
+	int		expected_result = strlcpy(dest, src, from);
 
 	//ACT
-	actual_result = ft_strncmp(input1, input2, from);
+	actual_result = ft_strlcpy(dest, src, from);
 
 	//ASSERT
 	mu_assert_int_eq(expected_result, actual_result);
@@ -186,6 +187,7 @@ MU_TEST_SUITE(libft_test_suite)
 	MU_RUN_TEST(test_ft_strchr_return_first_occurrence_of_a_character_in_a_string);
 	MU_RUN_TEST(test_ft_strrchr_return_last_occurrence_of_a_character_in_a_string);
 	MU_RUN_TEST(test_ft_strncmp_compare_two_strings);
+	MU_RUN_TEST(test_ft_strlcpy_copy_src_to_dest_and_return_src_len);
 
 }
 

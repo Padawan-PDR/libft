@@ -1,6 +1,7 @@
 #ifndef LIBFT_H
 #define LIBFT_H
 
+
 int		ft_isalpha(char character);
 int		ft_isdigit(char digit);
 int		ft_isalnum(char alphanum);
@@ -12,6 +13,6 @@ int		ft_strlen(char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *s1, const char *s2, int n);
-
+unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
 
 #endif
