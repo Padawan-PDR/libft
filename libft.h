@@ -14,5 +14,6 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int size);
+unsigned int ft_strlcat(char *dst, const char *src, unsigned int size);
 
 #endif

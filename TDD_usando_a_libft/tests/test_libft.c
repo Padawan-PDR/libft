@@ -160,18 +160,33 @@ MU_TEST(test_ft_strncmp_compare_two_strings)
 
 MU_TEST(test_ft_strlcpy_copy_src_to_dest_and_return_src_len)
 {
-	//ARRANGE
-	char	src[] = "Feijão com macarrão";
-	char	dest[20];
-	int from = sizeof(dest);
-	int		actual_result;
-	int		expected_result = strlcpy(dest, src, from);
+	 // ARRANGE
+    char src[] = "Feijao com macarrao";
+    char dest[20];
+    size_t expected_len = ft_strlen(src);
 
-	//ACT
-	actual_result = ft_strlcpy(dest, src, from);
+    // ACT
+    size_t actual_len = ft_strlcpy(dest, src, sizeof(dest));
 
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
+    // ASSERT
+    mu_assert_int_eq(expected_len, actual_len);
+    mu_assert_string_eq(src, dest);
+}
+
+MU_TEST(test_ft_strlcat_concatenate_src_to_dest_and_return_lenght_src_and_dst)
+{
+	// ARRANGE
+    char src[] = "batata";
+    char dst[30] = "feijola";
+    size_t expected_len = strlen(dst) + strlen(src);
+    char expected_dst[30] = "feijolabatata";
+
+    // ACT
+    size_t actual_len = ft_strlcat(dst, src, sizeof(dst));
+
+    // ASSERT
+    mu_assert_int_eq(expected_len, actual_len);
+    mu_assert_string_eq(expected_dst, dst);
 }
 
 MU_TEST_SUITE(libft_test_suite) 
