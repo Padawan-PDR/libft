@@ -189,6 +189,21 @@ MU_TEST(test_ft_strlcat_concatenate_src_to_dest_and_return_lenght_src_and_dst)
     mu_assert_string_eq(expected_dst, dst);
 }
 
+MU_TEST(test_ft_strnstr_serch_little_string_in_the_big_string)
+{
+	// ARRANGE
+    char *big = "Foo Bar Baz";
+
+	char *little = "B";
+    char *expected_result = "Bar Baz";
+
+    // ACT
+    char *actual_result = ft_strnstr(big, little, 4);
+
+    // ASSERT
+    mu_assert_string_eq(expected_result, actual_result);
+}
+
 MU_TEST_SUITE(libft_test_suite) 
 {
 	MU_RUN_TEST(test_ft_isalpha_receiving_A_returns_true);
@@ -203,6 +218,7 @@ MU_TEST_SUITE(libft_test_suite)
 	MU_RUN_TEST(test_ft_strrchr_return_last_occurrence_of_a_character_in_a_string);
 	MU_RUN_TEST(test_ft_strncmp_compare_two_strings);
 	MU_RUN_TEST(test_ft_strlcpy_copy_src_to_dest_and_return_src_len);
+	MU_RUN_TEST(test_ft_strnstr_serch_little_string_in_the_big_string);
 
 }
 
