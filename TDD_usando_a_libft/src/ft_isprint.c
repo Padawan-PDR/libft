@@ -14,7 +14,7 @@
 
 int	ft_isprint(char printable)
 {
-	if((printable >= 32 && printable <= 127) || (printable >= 7 && printable <= 13) || printable == '\0')
+	if((printable >= 32 && printable <= 127) || (printable >= 7 && printable <= 13))
 		return (1);
 	return (0);
 }
