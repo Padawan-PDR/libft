@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 17:45:33 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/04 10:00:31 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
-unsigned int ft_strlcat(char *dst, const char *src, unsigned int size)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int i;
 	char *cast_src;

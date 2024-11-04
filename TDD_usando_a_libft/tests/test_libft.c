@@ -207,17 +207,52 @@ MU_TEST(test_ft_strnstr_serch_little_string_in_the_big_string)
 MU_TEST(test_ft_memset_replaces_c_in_n_places_in_string_memory)
 {
 	// ARRANGE
-    char string[10] = "PAlabras91";
+    char string[10] = "PAlabras9";
 
 	char c = 'B';
 	int	n = 4;
-    char *expected_result = "BBBBbras91";
+    char *expected_result = "BBBBbras9";
 
     // ACT
     char *actual_result = ft_memset(string, c, n);
 
     // ASSERT
     mu_assert_string_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory)
+{
+	// ARRANGE
+    char string[10] = "PAlabras9";
+	size_t	n = 4;
+    char *expected_result = "bras9";
+
+    // ACT
+	ft_bzero(string, n);
+    char actual_result[10];
+	ft_strlcpy(actual_result, string, 10);
+
+
+    // ASSERTchar src[] = "Feijao com macarrao";
+    char dest[20];
+    size_t expected_len = ft_strlen(src);
+tual_result);
+}
+
+MU_TEST(test_ft_memcpy_copy_src_to_dest)
+{
+	// ARRANGE
+    char src[] = "Feijao com macarrao";
+    char dest[20];
+    size_t expected_len = ft_strlen(src);
+
+    // ACT
+    char actual_result[10];
+	ft_strlcpy(actual_result, string, 10);
+
+
+    // ASSERT
+    mu_assert_mem_eq(expected_result, actual_result, expected_len);
 }
 
 MU_TEST_SUITE(libft_test_suite) 
@@ -237,7 +272,8 @@ MU_TEST_SUITE(libft_test_suite)
 	MU_RUN_TEST(test_ft_strlcat_concatenate_src_to_dest_and_return_lenght_src_and_dst);
 	MU_RUN_TEST(test_ft_strnstr_serch_little_string_in_the_big_string);
 	MU_RUN_TEST(test_ft_memset_replaces_c_in_n_places_in_string_memory);
-
+	MU_RUN_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory);
+	MU_RUN_TEST(test_ft_memcpy_copy_src_to_dest);
 }
 
 int main(int argc, char *argv[]) {
