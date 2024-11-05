@@ -6,7 +6,7 @@
 /*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/04 10:37:37 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:14:52 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strnstr(const char *big, const char *little, int len);
 void	*ft_memset(void *s, int c, int n);
 void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 #endif

@@ -219,7 +219,7 @@ MU_TEST(test_ft_memset_replaces_c_in_n_places_in_string_memory)
     // ASSERT
     mu_assert_string_eq(expected_result, actual_result);
 }
-
+ 
 MU_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory)
 {
 	// ARRANGE
@@ -242,14 +242,13 @@ MU_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory)
 MU_TEST(test_ft_memcpy_copy_src_to_dest)
 {
 	// ARRANGE
-    char src[] = "Feijao com macarrao";
-    void *actual_result[20];
-	int	letra = 70;
-	size_t n = 5;
+    int src[4] = {25, 30, 22, 35};
+    int	dest[20];
+	size_t n = 4;
 
     // ACT
-    *actual_result = ft_memset(src, letra, n);
-	char *expected_result = "FFFFFo com macarrao";	
+    void *actual_result = ft_memcpy(dest, src, n);
+	int expected_result[] = {25, 30, 22, 35};
 
 
     // ASSERT
