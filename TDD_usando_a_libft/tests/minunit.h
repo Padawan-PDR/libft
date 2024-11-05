@@ -31,8 +31,8 @@
 #if defined(_WIN32)
 #include <Windows.h>
 #if defined(_MSC_VER) && _MSC_VER < 1900
-#define snprintf _snprintf
-#define __func__ __FUNCTION__
+  #define snprintf _snprintf
+  #define __func__ __FUNCTION__
 #endif
 
 #elif defined(__unix__) || defined(__unix) || defined(unix) || (defined(__APPLE__) && defined(__MACH__))
@@ -160,7 +160,7 @@ static void (*minunit_teardown)(void) = NULL;
 	} else {\
 		printf(BOLDGREEN("."));\
 	}\
-)mu_assert_string_eq
+)
 
 #define mu_fail(message) MU__SAFE_BLOCK(\
 	minunit_assert++;\
@@ -172,7 +172,9 @@ static void (*minunit_teardown)(void) = NULL;
 #define mu_assert(test, message) MU__SAFE_BLOCK(\
 	minunit_assert++;\
 	if (!(test)) {\
-		snprintf(minunit_lasmu_assert_string_eq
+		snprintf(minunit_last_message, MINUNIT_MESSAGE_LEN, PRINTRED("%s failed:\n\t%s:%d: %s"), __func__, __FILE__, __LINE__, message);\
+		minunit_status = 1;\
+		return;\
 	} else {\
 		printf(BOLDGREEN("."));\
 	}\
@@ -194,12 +196,14 @@ static void (*minunit_teardown)(void) = NULL;
 )
 
 #define mu_assert_int_between(lower, actual, upper) MU__SAFE_BLOCK(\
-    int minunit_tmp_e = (actual);\mu_assert_string_eq
+    int minunit_tmp_e = (actual);\
+    int minunit_tmp_l = (lower);\
+    int minunit_tmp_u = (upper);\
     minunit_assert++;\
     if (minunit_tmp_e < minunit_tmp_l || minunit_tmp_e > minunit_tmp_u) {\
-        snprintf(minunit_last_message, MINUNIT_MESSAGE_LEN, \
-            PRINTRED("%s failed:\n\t%s:%d: Expected %d to be between %d and %d"), \
-            __func__, __FILE__, __LINE__, minunit_tmp_e, minunit_tmp_l, minunit_tmp_u);\
+        snprintf(minunit_last_message, MINUNIT_MESSAGE_LEN,\
+                 PRINTRED("%s failed:\n\t%s:%d: Expected %d to be between %d and %d"),\
+                 __func__, __FILE__, __LINE__, minunit_tmp_e, minunit_tmp_l, minunit_tmp_u);\
         minunit_status = 1;\
         return;\
     } else {\
@@ -208,7 +212,10 @@ static void (*minunit_teardown)(void) = NULL;
 )
 
 #define mu_assert_char_eq(expected, result) MU__SAFE_BLOCK(\
-	int minunit_tmp_e;\mu_assert_string_eq
+	int minunit_tmp_e;\
+	int minunit_tmp_r;\
+	minunit_assert++;\
+	minunit_tmp_e = (expected);\
 	minunit_tmp_r = (result);\
 	if (minunit_tmp_e != minunit_tmp_r) {\
 		snprintf(minunit_last_message, MINUNIT_MESSAGE_LEN, PRINTRED("%s failed:\n\t%s:%d: %c expected but was %c"), __func__, __FILE__, __LINE__, minunit_tmp_e, minunit_tmp_r);\
@@ -317,7 +324,7 @@ static double mu_timer_real(void)
 	}
 	return (double)mach_absolute_time( ) * timeConvert;
 
-#elif defined(_POSIX_VERSION)mu_assert_string_eq
+#elif defined(_POSIX_VERSION)
 	/* POSIX. --------------------------------------------------- */
 	struct timeval tm;
 #if defined(_POSIX_TIMERS) && (_POSIX_TIMERS > 0)

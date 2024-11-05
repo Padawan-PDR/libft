@@ -233,26 +233,27 @@ MU_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory)
 	ft_strlcpy(actual_result, string, 10);
 
 
-    // ASSERTchar src[] = "Feijao com macarrao";
+    // ASSERT
+	char src[] = "Feijao com macarrao";
     char dest[20];
     size_t expected_len = ft_strlen(src);
-tual_result);
 }
 
 MU_TEST(test_ft_memcpy_copy_src_to_dest)
 {
 	// ARRANGE
     char src[] = "Feijao com macarrao";
-    char dest[20];
-    size_t expected_len = ft_strlen(src);
+    void *actual_result[20];
+	int	letra = 70;
+	size_t n = 5;
 
     // ACT
-    char actual_result[10];
-	ft_strlcpy(actual_result, string, 10);
+    *actual_result = ft_memset(src, letra, n);
+	char *expected_result = "FFFFFo com macarrao";	
 
 
     // ASSERT
-    mu_assert_mem_eq(expected_result, actual_result, expected_len);
+    mu_assert_mem_eq(expected_result, actual_result, n);
 }
 
 MU_TEST_SUITE(libft_test_suite) 
