@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/05 18:14:52 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/07 01:09:06 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define LIBFT_H
 
 #include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 
 int				ft_isalpha(char character);
 int				ft_isdigit(char digit);
@@ -32,5 +36,6 @@ char			*ft_strnstr(const char *big, const char *little, int len);
 void	*ft_memset(void *s, int c, int n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
 
 #endif

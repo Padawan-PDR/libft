@@ -255,6 +255,23 @@ MU_TEST(test_ft_memcpy_copy_src_to_dest)
     mu_assert_mem_eq(expected_result, actual_result, n);
 }
 
+MU_TEST(test_ft_memmove_copy_src_to_dest)
+{
+	// ARRANGE
+    char a[10] = "cavalinho";
+	int	 n = ft_strlen(a);
+	char b[7];
+	memcpy(b, a + 2, 7);
+
+    // ACT
+    void *actual_result = ft_memmove(b, a, n - 2);
+	char expected_result[7] = "cavalin";
+
+
+    // ASSERT
+    mu_assert_mem_eq(expected_result, actual_result, n);
+}
+
 MU_TEST_SUITE(libft_test_suite) 
 {
 	MU_RUN_TEST(test_ft_isalpha_receiving_A_returns_true);
@@ -274,6 +291,7 @@ MU_TEST_SUITE(libft_test_suite)
 	MU_RUN_TEST(test_ft_memset_replaces_c_in_n_places_in_string_memory);
 	MU_RUN_TEST(test_ft_bzero_turn_zero_n_places_in_string_s_memory);
 	MU_RUN_TEST(test_ft_memcpy_copy_src_to_dest);
+	MU_RUN_TEST(test_ft_memmove_copy_src_to_dest);
 }
 
 int main(int argc, char *argv[]) {
