@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 16:18:37 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:06:13 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-char	*ft_strchr(const char *str, int c)
+int	ft_isascii(char c)
 {
-	while(*str != '\0')
-	{
-		if((*str == c))
-		{
-			return (char *)str;
-		}
-		str++;
-	}
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/07 01:20:57 by pedrada          ###   ########.fr       */
+/*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
+/*   Updated: 2024/11/08 02:02:20 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, int n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char *ptr;
-	char word;
+	unsigned char	*ptr;
 
 	ptr = (unsigned char *)s;
-	word = (unsigned char)c;
-	while(n--)
-			*ptr++ = word;
-	return(void *)s;
+	while (n--)
+	{
+		*ptr++ = '\0';
+	}
 }

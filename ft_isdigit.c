@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:56:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/07 01:19:44 by pedrada          ###   ########.fr       */
+/*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
+/*   Updated: 2024/11/08 01:40:37 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_isdigit(char c)
 {
-
-	if(src > dest)
-		return(ft_memcpy(dest, src, n));
-	while (n--) 
-		((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
-	return dest;
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

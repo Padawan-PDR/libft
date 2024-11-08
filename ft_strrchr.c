@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_srchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 15:24:24 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:07:38 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-int	ft_toupper(int lower)
+char	*ft_strrchr(const char *s, int c)
 {
-	if(lower >= 'a' && lower <= 'z')
+	while (*s != '\0')
 	{
-		lower -= 32;
-		return (lower);
+		s++;
+	}
+	while (*s == s[0])
+	{
+		if (*s == c)
+		{
+			return ((char *)s);
+		}
+		s--;
 	}
 	return (0);
 }

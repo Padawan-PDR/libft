@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_schr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 12:59:16 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 15:24:24 by pedroalm         ###   ########.fr       */
+/*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
+/*   Updated: 2024/11/08 02:06:06 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-int	ft_isalpha(char character)
+char	*ft_strchr(const char *s, int c)
 {
-	if
-	(
-		(character >= 'a' && character <= 'z') 
-		|| (character >= 'A' && character <= 'Z')
-	)
-		return (1);
+	while (*s != '\0')
+	{
+		if ((*s == c))
+		{
+			return ((char *)s);
+		}
+		s++;
+	}
 	return (0);
 }

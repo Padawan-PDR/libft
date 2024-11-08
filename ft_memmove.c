@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 15:24:24 by pedroalm         ###   ########.fr       */
+/*   Created: 2024/11/06 12:56:37 by pedrada           #+#    #+#             */
+/*   Updated: 2024/11/08 01:45:30 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-int	ft_isalnum(char alphanum)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if
-	(
-		(alphanum >= '0' && alphanum <= '9') 
-		|| (alphanum >= 'a' && alphanum <= 'z') 
-		|| (alphanum >= 'A' && alphanum <= 'Z')
-	)
-		return (1);
-	return (0);
+	if (src > dest)
+		return (ft_memcpy(dest, src, n));
+	while (n--)
+		((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+	return (dest);
 }

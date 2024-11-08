@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/04 10:00:31 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/08 02:06:40 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int i;
-	char *cast_src;
-	int srclen;
-	int dstlen;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	cast_src = (char *)src;
-	srclen = ft_strlen(cast_src);
-	dstlen = ft_strlen(dst);
-	i = 0;
-	while (dst[i] != '\0' && i != size)
-	{
-		i++;
-	}
-
-	if (dst[i] != '\0')
+	d = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	if (!d && !s)
 		return (0);
-
-	while (i != size - 1 && *src != '\0')
-	{
-		dst[i] = *src;
-		i++;
-		src++;
-	}
-	dst[i] = '\0';
-	return (srclen + dstlen);
+	while (n--)
+		*d++ = *s++;
+	return (dest);
 }

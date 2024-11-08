@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/10/21 15:24:24 by pedroalm         ###   ########.fr       */
+/*   Created: 2024/11/03 17:32:40 by pedroalm          #+#    #+#             */
+/*   Updated: 2024/11/08 02:50:32 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft.h"
+#include "libft.h"
 
-int	ft_strlen(char *str)
+void	*ft_memset(void *s, int c, size_t n)
 {
-		int	i;
+	unsigned char	*ptr;
+	char			word;
 
-		i = 0;
-		while(*str != '\0')
-		{
-			str++;
-			i++;
-		}
-		return (i);
+	ptr = (unsigned char *)s;
+	word = (unsigned char)c;
+	while (n--)
+		*ptr++ = word;
+	return ((void *)s);
 }
