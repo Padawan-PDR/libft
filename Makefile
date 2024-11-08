@@ -1,5 +1,5 @@
 NAME = libft.a
-HEADER = libft.h
+CFLAGS = -Wall -Wextra -Werror -I. -c
 SRC = ft_isalpha.c\
 	ft_isdigit.c\
 	ft_isalnum.c\
@@ -17,11 +17,13 @@ SRC = ft_isalpha.c\
 	ft_memset.c\
 	ft_bzero.c\
 	ft_memcpy.c\
-	ft_memmove.c
+	ft_memmove.c\
+	ft_memchr.c\
+	ft_memcmp.c\
+	ft_atoi.c
 
 OBJECTS = $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
-CC = gcc
+
 
 # Main Rule
 all:$(NAME) 
@@ -31,8 +33,8 @@ $(NAME) : $(OBJECTS)
 	ar rc $@ $^
 
 # Compiles source files and creates object files
-$(OBJECTS) : $(SRC) $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJECTS) : $(SRC)
+	gcc $(CFLAGS) -c $< -o $@
 
 # Clears object files
 clean :

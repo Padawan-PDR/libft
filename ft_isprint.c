@@ -6,13 +6,13 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 02:46:48 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/08 05:17:48 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(char c)
+int	ft_isprint(int c)
 {
 	if ((c >= 32 && c <= 127) \
 	|| (c >= 7 && c <= 13))
