@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 01:53:13 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/08 21:33:04 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	{
 		i++;
 	}
-	if (dst[i] != '\0')
+	if (dst[i] == '\0')
 		return (0);
 	while (i != size - 1 && *src != '\0')
 	{

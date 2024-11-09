@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 05:03:00 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/08 17:34:31 by pedrada          ###   ########.fr       */
+/*   Created: 2024/11/08 21:18:59 by pedrada           #+#    #+#             */
+/*   Updated: 2024/11/08 21:29:09 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*ptr;
-	size_t	len_ptr;
+	char	*ptr_str;
+	int		len_str1;
+	int		len_str2;
+	int		len_cat;
 
-	len_ptr = nmemb * size;
-	if (!nmemb || !size)
-		return ('\0');
-	ptr = (void *)malloc(len_ptr);
-	ft_bzero(ptr, len_ptr);
-	return (ptr);
+	len_str1 = ft_strlen((char *)s1);
+	len_str2 = ft_strlen((char *)s2);
+	len_cat = len_str1 + len_str2;
+	ptr_str = (char *)malloc(len_cat + 1);
+	ptr_str = ft_strlcat((char *)s1, (char *)s2, len_cat);
+	return (ptr_str);
 }

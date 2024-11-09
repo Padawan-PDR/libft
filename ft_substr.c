@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 05:03:00 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/08 17:34:31 by pedrada          ###   ########.fr       */
+/*   Created: 2024/11/08 19:33:28 by pedrada           #+#    #+#             */
+/*   Updated: 2024/11/08 21:14:26 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	void	*ptr;
-	size_t	len_ptr;
+	char	*ptr_sub;
+	int		i;
+	int		len_s;
 
-	len_ptr = nmemb * size;
-	if (!nmemb || !size)
+	len_s = ft_strlen((char *)s);
+	if (start >= len_s)
+		return (ft_strdup(""));
+	if (len > len_s - start)
+		len = len_s - start;
+	ptr_sub = (char *)malloc((len + 1) * sizeof(char));
+	if (!ptr_sub)
 		return ('\0');
-	ptr = (void *)malloc(len_ptr);
-	ft_bzero(ptr, len_ptr);
-	return (ptr);
+	i = 0;
+	ft_strlcpy(ptr_sub, s + start, len + 1);
+	return (ptr_sub);
 }
