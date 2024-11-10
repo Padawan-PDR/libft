@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 21:33:04 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/09 17:06:53 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dstlen = ft_strlen(dst);
 	i = 0;
 	while (dst[i] != '\0' && i != size)
-	{
 		i++;
-	}
 	if (dst[i] == '\0')
 		return (0);
 	while (i != size - 1 && *src != '\0')

@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 21:18:59 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/08 21:29:09 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/09 17:17:14 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,29 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*ptr_str;
+	char	*cat_str;
 	int		len_str1;
 	int		len_str2;
-	int		len_cat;
+	int		i;
+	int		j;
 
-	len_str1 = ft_strlen((char *)s1);
-	len_str2 = ft_strlen((char *)s2);
-	len_cat = len_str1 + len_str2;
-	ptr_str = (char *)malloc(len_cat + 1);
-	ptr_str = ft_strlcat((char *)s1, (char *)s2, len_cat);
-	return (ptr_str);
+	len_str1 = ft_strlen(s1);
+	len_str2 = ft_strlen(s2);
+	i = 0;
+	j = 0;
+	cat_str = (char *)malloc((len_str1 + len_str2 + 1) * sizeof(char));
+	if (!cat_str)
+		return ('\0');
+	while (i < len_str1)
+	{
+		cat_str[i] = s1[i];
+		i++;
+	}
+	while (j < len_str2)
+	{
+		cat_str[i + j] = s2[j];
+		j++;
+	}
+	cat_str[i + j] = '\0';
+	return (cat_str);
 }

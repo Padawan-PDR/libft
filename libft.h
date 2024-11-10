@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 21:19:23 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/09 18:45:41 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
-size_t			ft_strlen(char *s);
+size_t			ft_strlen(const char *s);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -40,5 +40,6 @@ void			*ft_calloc(size_t nmemb, size_t size);
 char			*ft_strdup(const char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strtrim(char const *s1, char const *set);
 
 #endif 
