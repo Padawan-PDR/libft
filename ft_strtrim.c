@@ -6,11 +6,11 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 17:21:45 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/09 18:45:18 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

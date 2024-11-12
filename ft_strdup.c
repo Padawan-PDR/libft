@@ -6,11 +6,11 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:24:33 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/08 20:30:19 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/12 18:34:27 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {

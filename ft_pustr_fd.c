@@ -1,42 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_pustr_fd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 04:02:19 by pedrada           #+#    #+#             */
+/*   Created: 2024/11/12 18:03:18 by pedrada           #+#    #+#             */
 /*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
-	int	n;
-	int	negative;
 
 	i = 0;
-	n = 0;
-	negative = 1;
-	while (nptr[i] == ' ' || nptr[i] == '+')
-		i++;
-	if (nptr[i] == '-')
+	while (s[i])
 	{
-		negative = -1;
-		i++;
+		write(fd, &s[i], 1);
 	}
-	if (nptr[i] < '0' || nptr[i] > '9')
-		return (0);
-	while (nptr[i] != '\0')
-	{
-		if (nptr[i] < '0' || nptr[i] > '9')
-			return (n * negative);
-		n = n * 10;
-		n += nptr[i] - 48;
-		i++;
-	}
-	return (n * negative);
 }

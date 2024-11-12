@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 04:02:19 by pedrada           #+#    #+#             */
+/*   Created: 2024/11/12 18:11:19 by pedrada           #+#    #+#             */
 /*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-	int	n;
-	int	negative;
+	char	*nb;
+	int		i;
 
+	nb = ft_itoa(n);
 	i = 0;
-	n = 0;
-	negative = 1;
-	while (nptr[i] == ' ' || nptr[i] == '+')
-		i++;
-	if (nptr[i] == '-')
+	while (nb[i])
 	{
-		negative = -1;
+		write(fd, &nb[i], 1);
 		i++;
 	}
-	if (nptr[i] < '0' || nptr[i] > '9')
-		return (0);
-	while (nptr[i] != '\0')
-	{
-		if (nptr[i] < '0' || nptr[i] > '9')
-			return (n * negative);
-		n = n * 10;
-		n += nptr[i] - 48;
-		i++;
-	}
-	return (n * negative);
+	free(nb);
 }

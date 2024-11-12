@@ -6,11 +6,11 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:49:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/10 22:03:47 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static int	ft_s_count(char const *s, char c)
 {

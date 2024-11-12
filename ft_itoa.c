@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:49:34 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/11 20:00:31 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static int	len_n(int n)
 {
