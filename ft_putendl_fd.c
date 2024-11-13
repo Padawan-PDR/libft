@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 18:07:25 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/12 23:17:23 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, '\n', 1);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

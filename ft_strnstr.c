@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 02:57:45 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/12 20:14:45 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	int		j;
 
 	if (!(*little))
 	{

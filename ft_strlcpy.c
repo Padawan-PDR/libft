@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 01:46:31 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/13 00:44:35 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
 
 	i = 0;
-	j = 0;
-	while (src[j] != '\0')
+	if (size > 0)
 	{
-		if (i < size - 1)
+		while (i < size - 1 && src[i])
 		{
 			dst[i] = src[i];
 			i++;
 		}
-		j++;
+		dst[i] = '\0';
 	}
-	dst[i] = '\0';
-	return (j);
+	return (ft_strlen(src));
 }
