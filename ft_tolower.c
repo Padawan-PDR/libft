@@ -6,18 +6,15 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:19:55 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/08 02:02:37 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/14 00:26:14 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int upper)
+int	ft_tolower(int c)
 {
-	if (upper >= 'A' && upper <= 'Z')
-	{
-		upper += 32;
-		return (upper);
-	}
-	return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (c += 32);
+	return (c);
 }
