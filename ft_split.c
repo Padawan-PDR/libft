@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:49:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/14 06:35:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,21 @@ static int	ft_s_count(char const *s, char c)
 {
 	int	count;
 	int	i;
+	int	word;
 
 	count = 0;
 	i = 0;
+	word = 0;
 	while (s[i])
 	{
-		if ((s[i] != c && s[i + 1] == c) || (s[i + 1] == '\0'))
+		if ((s[i] != c && word == 0))
+		{
 			count++;
-		s++;
+			word = 1;
+		}
+		else if (s[i] == c)
+			word = 0;
+		i++;
 	}
 	return (count);
 }
