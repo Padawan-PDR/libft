@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:32:40 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/12 20:13:59 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/13 21:35:43 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,23 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t		i;
-	char		*cast_src;
-	int			srclen;
-	int			dstlen;
+	int			src_len;
+	size_t		dst_len;
 
-	cast_src = (char *)src;
-	srclen = ft_strlen(cast_src);
-	dstlen = ft_strlen(dst);
+	src_len = 0;
+	dst_len = 0;
+	while (dst[dst_len] != '\0' && dst_len < size)
+		dst_len++;
+	while (src[src_len] != '\0')
+		src_len++;
+	if (size <= dst_len)
+		return (src_len + dst_len);
 	i = 0;
-	while (dst[i] != '\0' && i != size)
-		i++;
-	if (dst[i] == '\0')
-		return (0);
-	while (i != size - 1 && *src != '\0')
+	while (src[i] != '\0' && (dst_len + i + 1) < size)
 	{
-		dst[i] = *src;
+		dst[dst_len + i] = src[i];
 		i++;
-		src++;
 	}
-	dst[i] = '\0';
-	return (srclen + dstlen);
+	dst[dst_len + i] = '\0';
+	return (src_len + dst_len);
 }
