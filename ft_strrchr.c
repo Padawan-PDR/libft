@@ -23,7 +23,5 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)&s[len_str]);
 		len_str--;
 	}
-	if ((unsigned char)s[len_str] == (unsigned char)c)
-		return ((char *)&s[len_str]);
 	return (NULL);
 }
