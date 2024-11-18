@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 21:18:59 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/12 18:34:24 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/18 10:10:33 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	cat_str = (char *)malloc((len_str1 + len_str2 + 1) * sizeof(char));
 	if (!cat_str)
-		return ('\0');
+		return (NULL);
 	while (i < len_str1)
 	{
 		cat_str[i] = s1[i];

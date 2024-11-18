@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:49:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/14 06:35:24 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/18 10:21:20 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	*ft_strndup(const char *s, size_t n)
 	char	*ptr;
 
 	ptr = (char *)malloc(1 + n * sizeof(char));
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
 	ptr = ft_strncpy(ptr, s, n);
 	ptr[n] = '\0';
