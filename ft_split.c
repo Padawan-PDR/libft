@@ -6,7 +6,7 @@
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:49:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/19 16:44:33 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:10:04 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static char	*ft_strndup(const char *s, size_t n, char **arrays)
 	char	*ptr;
 
 	ptr = (char *)malloc(1 + n * sizeof(char));
-	if (ptr == NULL)
+	if (!ptr)
 		return (NULL);
 	ptr = ft_strncpy(ptr, s, n);
 	if (!ptr)

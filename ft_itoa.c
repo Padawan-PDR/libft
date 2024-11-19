@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:49:34 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/11/14 05:47:34 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/14 18:38:04 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_lenght_n(int n)
+static int	ft_length_n(int n)
 {
 	int		len;
 
@@ -27,13 +27,13 @@ static int	ft_lenght_n(int n)
 	return (len);
 }
 
-static void	ft_convert(char *str, unsigned int n, int lenght)
+static void	ft_convert(char *str, unsigned int n, int length)
 {
-	str[lenght] = '\0';
-	while (lenght > 0)
+	str[length] = '\0';
+	while (length > 0)
 	{
-		lenght--;
-		str[lenght] = '0' + (n % 10);
+		length--;
+		str[length] = '0' + (n % 10);
 		n /= 10;
 	}
 }
@@ -41,23 +41,23 @@ static void	ft_convert(char *str, unsigned int n, int lenght)
 char	*ft_itoa(int n)
 {
 	unsigned int	number;
-	int				lenght;
+	int				length;
 	char			*str;
 
-	lenght = ft_lenght_n(n);
-	str = (char *)malloc(lenght + 1);
+	length = ft_length_n(n);
+	str = (char *)malloc(length + 1);
 	if (!str)
 		return (NULL);
 	if (n < 0)
 	{
 		str[0] = '-';
 		number = -n;
-		ft_convert(str + 1, number, lenght - 1);
+		ft_convert(str + 1, number, length - 1);
 	}
 	else
 	{
 		number = n;
-		ft_convert(str, number, lenght);
+		ft_convert(str, number, length);
 	}
 	return (str);
 }
