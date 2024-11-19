@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 18:49:37 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/14 06:35:24 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/19 16:44:33 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,22 @@ static char	*ft_strncpy(char *dst, const char *src, size_t n)
 	return (dst);
 }
 
-static char	*ft_strndup(const char *s, size_t n)
+static void	ft_free_arrays(char *array, char **arrays)
+{
+	int	i;
+
+	i = 0;
+	free(array);
+	while (arrays != NULL)
+	{
+		free(arrays[i]);
+		i++;
+		arrays++;
+	}
+	arrays = NULL;
+}
+
+static char	*ft_strndup(const char *s, size_t n, char **arrays)
 {
 	char	*ptr;
 
@@ -61,6 +76,11 @@ static char	*ft_strndup(const char *s, size_t n)
 	if (ptr == NULL)
 		return (NULL);
 	ptr = ft_strncpy(ptr, s, n);
+	if (!ptr)
+	{
+		ft_free_arrays(ptr, arrays);
+		return (NULL);
+	}
 	ptr[n] = '\0';
 	return (ptr);
 }
@@ -86,7 +106,7 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (i > j)
 		{
-			new_strings[k] = ft_strndup(s + j, i - j);
+			new_strings[k] = ft_strndup(s + j, i - j, new_strings);
 			k++;
 		}
 	}

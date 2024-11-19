@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 03:20:15 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/14 04:25:37 by pedrada          ###   ########.fr       */
+/*   Updated: 2024/11/15 15:28:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		}
 		str++;
 	}
-	return ('\0');
+	return (NULL);
 }
