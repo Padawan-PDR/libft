@@ -6,13 +6,13 @@
 /*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:42:32 by pedrada           #+#    #+#             */
-/*   Updated: 2024/11/21 16:55:35 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:55:53 by pedroalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_amount_s(char *s, char c)
+static int	amount_s(const char *s, char c)
 {
 	int	count;
 	int	i;
@@ -37,46 +37,46 @@ static int	ft_amount_s(char *s, char c)
 	return (count);
 }
 
-static void	ft_free(char ***s_words, int n_word)
+static void	free_allocation(char ***a_words, int i_word)
 {
 	int	i;
 
-	if (!s_words || !*s_words)
+	if (!a_words || !*a_words)
 		return ;
 	i = 0;
-	while (i < n_word)
+	while (i < i_word)
 	{
-		free((*s_words)[i]);
+		free((*a_words)[i]);
 		i++;
 	}
-	free(*s_words);
-	*s_words = NULL;
+	free(*a_words);
+	*a_words = NULL;
 }
 
-static void	ft_split_string(const char *s, char c, char ***s_words, int len_s)
+static void	split_string(const char *s, char c, char ***a_words, int len_s)
 {
 	int		i;
 	int		ocurrence;
-	int		n_word;
+	int		i_word;
 	char	*word;
 
 	i = 0;
-	n_word = 0;
-	while (s[i] != '\0' && n_word < len_s)
+	i_word = 0;
+	while (s[i] != '\0' && i_word < len_s)
 	{
 		ocurrence = 0;
 		while (s[i] == (unsigned char)c)
 			i++;
-		while (s[i] && s[i + ocurrence] != c)
+		while (s[i + ocurrence] && s[i + ocurrence] != c)
 			ocurrence++;
 		word = ft_substr(&s[i], 0, ocurrence);
 		if (!word)
 		{
-			ft_free(s_words, n_word);
+			free_allocation(a_words, i_word);
 			return ;
 		}
-		(*s_words)[n_word] = word;
-		n_word++;
+		(*a_words)[i_word] = word;
+		i_word++;
 		i += ocurrence;
 	}
 }
@@ -84,16 +84,16 @@ static void	ft_split_string(const char *s, char c, char ***s_words, int len_s)
 char	**ft_split(char const *s, char c)
 {
 	int		len_s;
-	char	**s_words;
+	char	**a_words;
 
 	if (!s)
 		return (ft_calloc(1, sizeof(char *)));
-	len_s = ft_amount_s((char *)s, c);
+	len_s = amount_s(s, c);
 	if (len_s == 0)
 		return (ft_calloc(1, sizeof(char *)));
-	s_words = (char **)ft_calloc((len_s + 1), sizeof(char *));
-	if (s_words == 0)
+	a_words = (char **) ft_calloc((len_s + 1), sizeof(char *));
+	if (a_words == 0)
 		return (0);
-	ft_split_string(s, c, &s_words, len_s);
-	return (s_words);
+	split_string(s, c, &a_words, len_s);
+	return (a_words);
 }
