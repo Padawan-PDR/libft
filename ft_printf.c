@@ -12,17 +12,30 @@
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *s, ...)
+static int	n_conversions(const char *s)
 {
 	int	i;
 	int	n_conversions;                               
 
 	i = 0;
+	n_conversions = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
 		{
-			
+			n_conversions++;
 		}
+		i++;
 	}
+	return(n_conversions);
 }
+
+
+int	ft_printf(const char *s, ...)
+{
+	if(s == NULL || *s == '\0'_
+		return (NULL);
+	n_conversios(s);
+	
+}
+
