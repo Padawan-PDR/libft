@@ -13,55 +13,62 @@
 #include "ft_printf.h"
 
 
-static int	count_conversions(const char *s)
+static int	count_conversions(const char *s, char *t_actual_element)
 {
 	int	i;
-	int	n_conversions;
+	int	n_elements; 
 	int	aux;
 
 	i = 0;
-	n_conversions = 0;
-	aux = 0;
-	while (s[i] != '\0')
+	n_elements = 0;
+	while (*s)
 	{
-		if (s[i] == '%')
+		if (*s == '%')
 		{
-			n_conversions++;
+			n_elements++;
 			aux = 1;
+			s++;
+			t_actual_element[n_elements] = *s;
 		}
 		if (!aux)
-			write(1, s[i], 1);
-		i++;
+			write(1, *s, 1);
+		s++;
 	}
-	return (n_conversions);
+	return (n_elements);
 }
-static void	conversion(const char *sleep)
+static void	conversion(char *element)
 {
 	
-	if (*s + 1 == 'c')
-	{
-	va_start(args, char);
-		write(1, );
-	}
-	*s + 1 != 's' || \
-	*s + 1 != 'p' || \
-	*s + 1 != 'd' || \
-	*s + 1 != 'i' || \
-	*s + 1 != 'u' || \
-	*s + 1 != 'x' || \
-	*s + 1 != 'X' || \
-	*s + 1 != '%');
+
 		
 }
 
 int	ft_printf(const char *s, ...)
 {
-	int	printed;
-	
+	char	*t_actual_element;
+	int	i;
+
+	i = count_conversions(s, t_actual_element);
 	if (s == NULL || *s == '\0')
 		return (NULL);
-	printed = count_conversions(s);
-	va_list	args;
-	va_start(args, printed);
-	
+	va_list args;
+	va_start(args, i);
+	if (*element + 1 == 'c')
+		va_arg(args, char);
+	if(*element + 1 != 's')
+		va_arg(args, char *)
+	if(*element + 1 != 'p')
+		va_arg(args, )
+	if(*element + 1 != 'd')
+		return (char);
+	if(*element + 1 != 'i')
+		return (char);
+	if(*element + 1 != 'u')
+		return (char);
+	if(*element + 1 != 'X')
+		return (char);
+	if(*element + 1 != 'x')
+		return (char);
+	if(*element + 1 != '%')
+		return ();
 }

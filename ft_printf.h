@@ -15,6 +15,6 @@
 
 # include <stdlib.h>
 # include <stdarg.h>
-# include </nfs/homes/pedroalm/libft_do_github/libft/libft.h>
+# include <../libft/libft.h>
 
 #endif
