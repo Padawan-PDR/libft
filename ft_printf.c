@@ -12,40 +12,13 @@
 
 #include "ft_printf.h"
 
-static int	count_conversions(const char *s, char *t_actual_element)
+void	type_of_arg(const char *s, va_list args)
 {
-	int	i;
-	int	n_elements;
-	int	aux;
-
-	i = 0;
-	n_elements = 0;
-	while (*s)
-	{
-		if (*s == '%')
-		{
-			n_elements++;
-			aux = 1;
-			s++;
-			t_actual_element[n_elements] = *s;
-		}
-		if (!aux)
-			write(1, *s, 1);
-		s++;
-	}
-	return (n_elements);
-}
-
-int	ft_printf(const char *s, ...)
-{
-	char	*t_actual_element;
-	int		i;
 	va_list	args;
 
-	i = count_conversions(s, t_actual_element);
 	if (s == NULL || *s == '\0')
 		return (NULL);
-	va_start(args, i);
+	va_start(args, 6);
 	if (*s + 1 == 'c')
 		va_arg(args, char);
 	if (*s + 1 == 's')
@@ -64,4 +37,26 @@ int	ft_printf(const char *s, ...)
 		va_arg(args, char);
 	if (*s + 1 == '%')
 		va_arg(args, char);
+}
+
+int	ft_printf(const char *s, ...)
+{
+	int		n_elements;
+	char	*t_actual_element;
+	va_list	args;
+
+	n_elements = 0;
+	while (*s)
+	{
+		if (*s == '%')
+		{
+			n_elements++;
+			s++;
+			t_actual_element[n_elements] = *s;
+		}
+		else
+			write(1, *s, 1);
+		s++;
+	}
+	type_of_args(s, args);
 }
