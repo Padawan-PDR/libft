@@ -16,26 +16,23 @@ void	type_of_arg(const char *s, va_list args)
 {
 	char	c;
 
-
 	if (s == NULL || *s == '\0')
 		return (NULL);
-	if (*s + 1 == 'c')
-		write(1, va_arg(args, char), 1);
-	if (*s + 1 == 's')
+	if (*s == 'c' || *s == 'd')
+		write(1, va_arg(args, int), 1);
+	if (*s == 's')
 		va_arg(args, char *);
-	if (*s + 1 == 'p')
-		va_arg(args, char);
-	if (*s + 1 == 'd')
+	if (*s == 'p')
+		va_arg((args, int), 16);
+	if (*s == 'i')
 		va_arg(args, int);
-	if (*s + 1 == 'i')
-		va_arg(args, int);
-	if (*s + 1 == 'u')
+	if (*s == 'u')
 		va_arg(args, unsigned int);
-	if (*s + 1 == 'X')
+	if (*s == 'X')
 		va_arg(args, char);
-	if (*s + 1 == 'x')
+	if (*s == 'x')
 		va_arg(args, char);
-	if (*s + 1 == '%')
+	if (*s == '%')
 		va_arg(args, char);
 }
 
@@ -49,13 +46,9 @@ int	ft_printf(const char *s, ...)
 	while (*s)
 	{
 		if (*s == '%')
-		{
-			n_elements++;
-			type_of_args(s, args);
-			s++;
-		}
+			n_elements =+ type_of_args(*(++s), args);
 		else
-			write(1, *s, 1);
+			n_elements =+ write(1, *s, 1);
 		s++;
 	}
 }
