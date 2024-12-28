@@ -3,52 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pedroalm <pedroalm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 01:00:39 by pedrada           #+#    #+#             */
-/*   Updated: 2024/12/02 17:16:02 by pedroalm         ###   ########.fr       */
+/*   Updated: 2024/12/27 23:05:25 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	type_of_arg(const char *s, va_list args)
+int	print_digit(long n, int base, int upper_case)
 {
-	char	c;
+	int		count;
+	char	*numbers;
 
-	if (s == NULL || *s == '\0')
-		return (NULL);
-	if (*s == 'c' || *s == 'd')
-		write(1, va_arg(args, int), 1);
-	if (*s == 's')
-		va_arg(args, char *);
-	if (*s == 'p')
-		va_arg((args, int), 16);
-	if (*s == 'i')
-		va_arg(args, int);
-	if (*s == 'u')
-		va_arg(args, unsigned int);
-	if (*s == 'X')
-		va_arg(args, char);
-	if (*s == 'x')
-		va_arg(args, char);
-	if (*s == '%')
-		va_arg(args, char);
+	count = 0;
+	if (upper_case == 0)
+		numbers = "0123456789abcdef";
+	else
+		numbers = "0123456789ABCDEF";
+	if (n < 0)
+	{
+		ft_putchar('-');
+		return (print_digit(-n, base, upper_case) + 1);
+	}
+	else if (n < base)
+		return (ft_putchar(numbers[n]));
+	else
+	{
+		count = print_digit(n / base, base, upper_case);
+		return (count + print_digit(n % base, base, upper_case));
+	}
+}
+
+int	type_of_args(char type_indicator, va_list ap)
+{
+	int	count;
+
+	count = 0;
+	if (type_indicator == 'c')
+		count += ft_putchar(va_arg(ap, int));
+	else if (type_indicator == 's')
+		count += ft_putstr(va_arg(ap, char *));
+	else if (type_indicator == 'p')
+	{
+		count += ft_putstr("0x");
+		count += print_digit((unsigned long) va_arg(ap, void *), 16, 0);
+	}
+	else if (type_indicator == 'd' || type_indicator == 'i')
+		count += print_digit(va_arg(ap, int), 10, 0);
+	else if (type_indicator == 'u')
+		count += print_digit(va_arg(ap, unsigned int), 10, 0);
+	else if (type_indicator == 'x')
+		count += print_digit(va_arg(ap, unsigned int), 16, 0);
+	else if (type_indicator == 'X')
+		count += print_digit(va_arg(ap, unsigned int), 16, 1);
+	else if (type_indicator == '%')
+		count += ft_putchar('%');
+	else
+		count += write(1, &type_indicator, 1);
+	return (count);
 }
 
 int	ft_printf(const char *s, ...)
 {
+	va_list	ap;
 	int		n_elements;
-	va_list	args;
 
+	va_start(ap, s);
 	n_elements = 0;
-	va_start(args, s);
 	while (*s)
 	{
 		if (*s == '%')
-			n_elements =+ type_of_args(*(++s), args);
+			n_elements += type_of_args(*(++s), ap);
 		else
-			n_elements =+ write(1, *s, 1);
+			n_elements += ft_putchar(*s);
 		s++;
 	}
+	va_end(ap);
+	return (n_elements);
 }

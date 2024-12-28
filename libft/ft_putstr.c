@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pedrada <pedrada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 09:56:48 by pedroalm          #+#    #+#             */
-/*   Updated: 2024/12/27 22:08:36 by pedrada          ###   ########.fr       */
+/*   Created: 2024/12/27 20:34:39 by pedrada           #+#    #+#             */
+/*   Updated: 2024/12/27 21:50:06 by pedrada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <stdarg.h>
-# include <../libft/libft.h>
+int	ft_putstr(char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar((int) s[i]);
+		i++;
+	}
+	return (i);
+}
